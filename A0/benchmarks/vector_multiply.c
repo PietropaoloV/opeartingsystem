@@ -53,6 +53,16 @@ int main(int argc, char **argv) {
 		}
 	}
 
+	if(argc > 2){
+		if(atoi(argv[2]) == 0 || atoi(argv[2]) == 1 || atoi(argv[2]) == 2)
+		setScheduler(atoi(argv[2]));
+	else 
+		printf("\nPlease select the correct scheduler mode");
+	}
+	else{
+		setScheduler(-1);
+	}
+
 	// initialize counter
 	counter = (int*)malloc(thread_num*sizeof(int));
 	for (i = 0; i < thread_num; ++i)

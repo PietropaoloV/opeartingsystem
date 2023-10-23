@@ -213,6 +213,16 @@ int main(int argc, char **argv) {
     int i = 0;
     thread_num = 2;
 
+    if(argc > 1){
+		if(atoi(argv[1]) == 0 || atoi(argv[1]) == 1 || atoi(argv[1]) == 2)
+		setScheduler(atoi(argv[1]));
+	else 
+		printf("\nPlease select the correct scheduler mode");
+	}
+	else{
+		setScheduler(-1);
+	}
+
     // initialize pthread_t
     thread = (pthread_t*)malloc(thread_num*sizeof(pthread_t));
 

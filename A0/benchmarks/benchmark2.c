@@ -66,16 +66,26 @@ int main(int argc, char **argv) {
 	
 	int test = ARRAY_SIZE;
 // printf("\nArray SIZE: %d", test);
-	// if (argc == 1) {
-	// 	thread_num = DEFAULT_THREAD_NUM;
-	// } else {
-	// 	if (argv[1] < 1) {
-	// 		printf("enter a valid thread number\n");
-	// 		return 0;
-	// 	} else {
-	// 		thread_num = atoi(argv[1]);
-	// 	}
-	// }
+	if (argc == 1) {
+		thread_num = DEFAULT_THREAD_NUM;
+	} else {
+		if (argv[1] < 1) {
+			printf("enter a valid thread number\n");
+			return 0;
+		} else {
+			thread_num = atoi(argv[1]);
+		}
+	}
+
+	if(argc > 2){
+		if(atoi(argv[2]) == 0 || atoi(argv[2]) == 1 || atoi(argv[2]) == 2)
+		setScheduler(atoi(argv[2]));
+	else 
+		printf("\nPlease select the correct scheduler mode");
+	}
+	else{
+		setScheduler(-1);
+	}
 
 	// // initialize counter
 	counter = (int*)malloc(2*ARRAY_SIZE*sizeof(int));

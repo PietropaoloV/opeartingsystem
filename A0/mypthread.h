@@ -43,9 +43,9 @@ typedef enum t_state{
 }t_state;
 
 typedef enum _mode {
-    RR,
-    PSJF,
-    MLFQ
+    RR = 0,
+    PSJF = 1,
+    MLFQ = 2
 } mode;
 
 
